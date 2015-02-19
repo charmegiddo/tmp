@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+
+<script>
+jQuery( function() {
+    jQuery( '#jquery-sample-button' ).toggle(
+        function() {
+            jQuery.ajax( {
+            	type: "GET",
+ 				cache: false,
+ 				dataType: "html",
+                url: 'http://54.238.197.164/test/ajax/index.html',
+                success: function(data, textStatus) {
+                    //jQuery( '#jquery-sample-ajax').append(textStatus);
+                    jQuery('#jquery-sample-ajax').append('<img border="0" src="../images/img001.gif" width="128" height="128" alt="イラスト1"><img border="1" src="../images/img002.gif" width="128" height="128" alt="イラスト2" title="犬とサッカー"><img border="1" src="../images/img002.gif" width="128" height="128" alt="イラスト2" title="犬とサッカー"><img border="1" src="../images/img002.gif" width="128" height="128" alt="イラスト2" title="犬とサッカー"><img border="1" src="../images/img002.gif" width="128" height="128" alt="イラスト2" title="犬とサッカー"><img border="1" src="../images/img002.gif" width="128" height="128" alt="イラスト2" title="犬とサッカー"><img border="1" src="../images/img002.gif" width="128" height="128" alt="イラスト2" title="犬とサッカー"><img border="1" src="../images/img002.gif" width="128" height="128" alt="イラスト2" title="犬とサッカー"><img border="1" src="../images/img002.gif" width="128" height="128" alt="イラスト2" title="犬とサッカー"><img border="1" src="../images/img002.gif" width="128" height="128" alt="イラスト2" title="犬とサッカー">');
+                    console.log(data);
+                    
+                    jQuery( '#jquery-sample-textStatus' ).text( '読み込み成功' );
+                },
+                error: function( data ) {
+                    jQuery( '#jquery-sample-textStatus' ).text( '読み込み失敗' );
+                }
+            } );
+        },
+        function() {
+            jQuery( '#jquery-sample-ajax' ).html( '' );
+            jQuery( '#jquery-sample-textStatus' ).text( '' );
+        }
+    );
+} );
+</script>
+
+
+<title>ajax</title>
+</head>
+<body>
+
+<div id="jquery-sample">
+    <p>
+        <button id="jquery-sample-button">toggle</button>
+        <span id="jquery-sample-textStatus"></span>
+    </p>
+    <div id="jquery-sample-ajax"></div>
+</div>
+
+<p id="hoge">hoge</p>
+
+</body>
+</html>
